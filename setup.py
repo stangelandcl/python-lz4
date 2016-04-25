@@ -17,9 +17,7 @@ setup(
     packages=find_packages('src'),
     package_dir={'': 'src'},
     ext_modules=[
-        Extension('lz4', [
-            'src/lz4.c',
-            'src/lz4hc.c',
+        Extension('lz4', [                        
             'src/python-lz4.c'
         ], extra_compile_args=[
             "-std=c99",
@@ -28,8 +26,8 @@ setup(
             "-W",
             "-Wundef",
             "-DVERSION=\"%s\"" % VERSION_STR,
-            "-DLZ4_VERSION=\"r119\"",
-        ])
+            "-DLZ4_VERSION=\"r131\"",
+        ], libraries=['lz4'])
     ],
     setup_requires=["nose>=1.0"],
     test_suite = "nose.collector",
